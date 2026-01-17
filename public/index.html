@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <h1>Chat Application</h1>
+        <span class="tag">Fast • Secure • Modern</span>
+      </div>
+      <div class="controls">
+        <label class="name-field">Name <input id="name" value="Dileep Agrahari" maxlength="24" /></label>
+      </div>
+    </header>
+
+    <section class="chat">
+      <aside class="participants">
+        <h2>Active</h2>
+        <ul id="users" aria-label="Active users"></ul>
+      </aside>
+
+      <section class="messages-area">
+        <div id="messages" class="messages" aria-live="polite" aria-atomic="false"></div>
+
+        <form id="form" class="composer" autocomplete="off">
+          <input id="msg" placeholder="Type a message and press Enter or Send" />
+          <button class="send">Send</button>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <script src="/client.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/* Next Level Dark Theme — style.css */
+:root{
+  --bg-900: #060615; /* almost black */
+  --bg-800: #0b1020;
+  --panel: rgba(255,255,255,0.03);
+  --muted: rgba(255,255,255,0.45);
+  --accent-1: #7afcff; /* cyan */
+  --accent-2: #8a7fff; /* violet */
+  --accent-3: #66ffb2; /* mint */
+  --glass: rgba(255,255,255,0.02);
+  --radius: 12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #e6eef8;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(122,127,255,0.06), transparent 10%),
+              radial-gradient(900px 500px at 90% 90%, rgba(122,255,255,0.03), transparent 10%),
+              linear-gradient(180deg, var(--bg-900), var(--bg-800));
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+.app{
+  max-width:1100px;
+  margin:0 auto;
+  height:calc(100vh - 48px);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.app-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:12px;
+  box-shadow: 0 4px 20px rgba(3,6,23,0.6);
+}
+.brand h1{margin:0; font-size:1.15rem; letter-spacing:0.4px}
+.brand .tag{display:block; color:var(--muted); font-size:0.85rem}
+.name-field{color:var(--muted); font-size:0.9rem}
+.name-field input{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:6px 10px; border-radius:8px; color:inherit}
+.name-field input:focus{outline:none; border-color:var(--accent-2); box-shadow:0 0 0 4px rgba(138,127,255,0.06)}
+
+.chat{display:flex; gap:16px; flex:1; align-items:stretch}
+.participants{
+  width:260px;
+  background:var(--panel);
+  padding:16px;
+  border-radius:var(--radius);
+  color:var(--muted);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.participants h2{margin:0 0 8px 0; font-size:0.95rem}
+.participants ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+.participants li{display:flex; gap:10px; align-items:center}
+.participants .dot{width:10px;height:10px;border-radius:50%; background:linear-gradient(135deg,var(--accent-1),var(--accent-2))}
+
+.messages-area{flex:1; display:flex; flex-direction:column; background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); padding:14px; border-radius:var(--radius)}
+.messages{flex:1; overflow:auto; display:flex; flex-direction:column; gap:10px; padding:8px}
+.message{max-width:72%; padding:12px 14px; border-radius:12px; background:rgba(255,255,255,0.02); box-shadow: 0 6px 16px rgba(2,6,23,0.6); color:inherit}
+.message .meta{display:block; font-size:0.8rem; color:var(--muted); margin-bottom:6px}
+.message.other{align-self:flex-start; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+.message.mine{align-self:flex-end; background:linear-gradient(180deg,var(--accent-1),var(--accent-2)); color:#031026}
+
+.composer{display:flex; gap:12px; padding-top:12px; align-items:center}
+.composer input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); background:var(--glass); color:inherit}
+.composer input:focus{outline:none; box-shadow:0 8px 24px rgba(122,127,255,0.06); border-color:var(--accent-1)}
+.composer .send{background:linear-gradient(135deg,var(--accent-2),var(--accent-1)); color:#021028; padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:600}
+.composer .send:active{transform:translateY(1px)}
+
+/* small screens */
+@media (max-width:880px){
+  .chat{flex-direction:column}
+  .participants{width:100%; display:flex; overflow:auto}
+  .messages-area{height:100%}
+  .message{max-width:86%}
+}
+
+n/* custom scrollbar */
+.messages::-webkit-scrollbar{width:10px}
+.messages::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(138,127,255,0.28),rgba(122,255,255,0.2)); border-radius:10px}
+
+n/* subtle focus helpers */
+:focus{outline:2px solid transparent;}
+:focus-visible{outline:3px solid rgba(122,127,255,0.12); outline-offset:2px}
+ 
